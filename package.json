@@ -12,6 +12,10 @@
     "pretty-error": "^2.1.0"
   },
   "scripts": {
-    "cli": "node src/index.js"
+    "cli": "node src/index.js",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^20.0.1"
   }
 }
