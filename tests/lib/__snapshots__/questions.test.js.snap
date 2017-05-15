@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`makeTemplateQuestion() should make the right question 1`] = `
+Array [
+  Object {
+    "choices": Array [
+      "foo",
+    ],
+    "message": "What would you like to create?",
+    "name": "templateName",
+    "type": "list",
+  },
+]
+`;

@@ -40,19 +40,7 @@ function makeFieldQuestions(templateConfig) {
     });
 }
 
-module.exports = function() {
-    return Promise.resolve()
-        .then(() => {
-            return inquirer.prompt(makeTemplateQuestion());
-        })
-        .then(({ templateName }) => {
-            const templateConfig = getTemplateConfig(templateName);
-            const questions = makeFieldQuestions(templateConfig);
-            return inquirer.prompt(questions).then(answers => {
-                return {
-                    templateName,
-                    fields: answers,
-                };
-            });
-        });
-}
+module.exports = {
+    makeFieldQuestions,
+    makeTemplateQuestion
+};
