@@ -1,5 +1,9 @@
 node_modules
 .DS_Store
-destination
 coverage
+
+# When the tests create files they are put here.
 tests/test-templates-output
+
+# When playing in the playground files are output here:
+playground/output

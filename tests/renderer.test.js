@@ -21,7 +21,7 @@ describe('renderFiles()', () => {
 
         getTemplateConfig.mockImplementation(() => {
             return {
-                templatePath: __dirname + '/test-templates/containerName.js',
+                templatePath: __dirname + '/test-templates/CONTAINER_NAME.js',
                 outputPath: outputPath,
             };
         });
@@ -29,7 +29,7 @@ describe('renderFiles()', () => {
         renderFiles({
             templateName: '',
             fields: {
-                containerName: 'Baz'
+                CONTAINER_NAME: 'Baz'
             }
         });
 
@@ -40,7 +40,7 @@ describe('renderFiles()', () => {
 
         getTemplateConfig.mockImplementation(() => {
             return {
-                templatePath: __dirname + '/test-templates/componentName',
+                templatePath: __dirname + '/test-templates/COMPONENT_NAME',
                 outputPath: outputPath,
             };
         });
@@ -48,20 +48,20 @@ describe('renderFiles()', () => {
         renderFiles({
             templateName: '',
             fields: {
-                componentName: 'Bar',
+                COMPONENT_NAME: 'Bar',
                 specialNumber: 'A'
             }
         });
 
         expect(fs.readFileSync(outputPath + '/Bar/index.js', 'utf8')).toMatchSnapshot();
-        expect(fs.readFileSync(outputPath + '/Bar/sub-file.js', 'utf8')).toMatchSnapshot();
+        expect(fs.readFileSync(outputPath + '/Bar/styles.css', 'utf8')).toMatchSnapshot();
     });
 
     it('should throw an error if the output of a template allready exists', () => {
 
         getTemplateConfig.mockImplementation(() => {
             return {
-                templatePath: __dirname + '/test-templates/componentName',
+                templatePath: __dirname + '/test-templates/COMPONENT_NAME',
                 outputPath: outputPath,
             };
         });
@@ -70,7 +70,7 @@ describe('renderFiles()', () => {
             renderFiles({
                 templateName: '',
                 fields: {
-                    componentName: 'Bar',
+                    COMPONENT_NAME: 'Bar',
                     specialNumber: 'A'
                 }
             });

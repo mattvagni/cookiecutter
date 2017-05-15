@@ -1,11 +1,11 @@
 module.exports = [
     {
         name: "Normal Component",
-        templatePath: "templates/componentName/",
-        outputPath: "destination/",
+        templatePath: "templates/COMPONENT_NAME/",
+        outputPath: "output/",
         fields: [
             {
-                templateVariable: 'componentName',
+                templateVariable: 'COMPONENT_NAME',
                 question: "What is your components name?",
                 errorMessage: "Can't be more than 10 characters long."
             },
@@ -21,11 +21,11 @@ module.exports = [
     },
     {
         name: "Container Component",
-        templatePath: "templates/containerName.js",
-        outputPath: "destination/containers",
+        templatePath: "templates/CONTAINER_NAME.js",
+        outputPath: "output/containers",
         fields: [
             {
-                templateVariable: 'containerName',
+                templateVariable: 'CONTAINER_NAME',
                 question: "What is your container component's name?",
                 errorMessage: "Must be at least 5 characters long.",
                 isValid(val) {

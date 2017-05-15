@@ -14,7 +14,15 @@ class Bar React.Component {
 export default Bar"
 `;
 
-exports[`renderFiles() should correctly render the files when the template is a folder 2`] = `"console.log('Bar');"`;
+exports[`renderFiles() should correctly render the files when the template is a folder 2`] = `
+"/*
+Styles for Bar component
+*/
+
+.root {
+    background: red;
+}"
+`;
 
 exports[`renderFiles() should correctly render the files when the template is just a path 1`] = `
 "import React from 'react';
