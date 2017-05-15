@@ -1,6 +1,6 @@
 const path = require('path');
 
-const ROOT_KEY = Math.random() * 16 + '__root';
+const ROOT_KEY = Math.random() * 42 + '__root';
 
 const CONFIG_SCHEMA = [
     isArray(1),
@@ -19,17 +19,6 @@ const CONFIG_SCHEMA = [
         ],
     },
 ];
-
-function getConfig() {
-    const pwd = process.env.PWD;
-    var config = require(path.join(pwd, 'cookie.config.js'));
-    return validateConfig(config);
-}
-
-function getTemplateConfig(templateName) {
-    const config = getConfig();
-    return config.find(c => c.name === templateName);
-}
 
 function errorPrefix(key) {
     if (key === ROOT_KEY) {
@@ -109,6 +98,17 @@ function validate(schema, config, key=ROOT_KEY) {
     });
 }
 
+function getConfig() {
+    const pwd = process.env.PWD;
+    var config = require(path.join(pwd, 'cookie.config.js'));
+    return validateConfig(config);
+}
+
+function getTemplateConfig(templateName) {
+    const config = getConfig();
+    return config.find(c => c.name === templateName);
+}
+
 function validateConfig(config) {
     validate(CONFIG_SCHEMA, config);
     return config;
@@ -116,7 +116,8 @@ function validateConfig(config) {
 
 module.exports = {
     getConfig,
-    getTemplateConfig
+    getTemplateConfig,
+    validateConfig
 }
 
 

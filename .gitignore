@@ -1,3 +1,5 @@
 node_modules
 .DS_Store
 destination
+coverage
+tests/test-templates-output

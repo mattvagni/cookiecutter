@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`validateConfig() should return the config if it is valid 1`] = `
+Array [
+  Object {
+    "fields": Array [
+      Object {
+        "errorMessage": "A component name must be at least 1 character long.",
+        "isValid": [Function],
+        "question": "What should your component be called?",
+        "templateVariable": "MY COMPONENT NAME",
+      },
+    ],
+    "name": "the name",
+    "outputPath": "src/app/components/",
+    "templatePath": "templates/",
+  },
+]
+`;
+
+exports[`validateConfig() should throw if config is incorrect 1`] = `"Your config should be an array. Received: undefined"`;
+
+exports[`validateConfig() should throw if config is incorrect 2`] = `"Your config should be an array. Received: undefined"`;
+
+exports[`validateConfig() should throw if config is incorrect 3`] = `"In your config, \\"name\\" should be a string at least 1 characters in length. Received an array: [object Object]"`;
+
+exports[`validateConfig() should throw if config is incorrect 4`] = `"In your config, \\"templatePath\\" should be a should be a path (string). Received an array: [object Object]"`;
+
+exports[`validateConfig() should throw if config is incorrect 5`] = `"Your config should be an array. Received: "`;
+
+exports[`validateConfig() should throw if config is incorrect 6`] = `"In your config, \\"outputPath\\" should be a should be a path (string). Received an array: [object Object]"`;
+
+exports[`validateConfig() should throw if config is incorrect 7`] = `"Your config should be an array. Received: NaN"`;
+
+exports[`validateConfig() should throw if config is incorrect 8`] = `"In your config, \\"templateVariable\\" should be a string at least 1 characters in length. Received: undefined"`;
+
+exports[`validateConfig() should throw if config is incorrect 9`] = `"In your config, \\"templateVariable\\" should be a string at least 1 characters in length. Received: undefined"`;
+
+exports[`validateConfig() should throw if config is incorrect 10`] = `"Your config should be an array. Received: "`;
+
+exports[`validateConfig() should throw if config is incorrect 11`] = `"In your config, \\"templateVariable\\" should be a string at least 1 characters in length. Received an array: [object Object]"`;
+
+exports[`validateConfig() should throw if config is incorrect 12`] = `"In your config, \\"question\\" should be a string at least 1 characters in length. Received an array: [object Object]"`;
+
+exports[`validateConfig() should throw if config is incorrect 13`] = `"In your config, \\"isValid\\" should be a function. Received an array: [object Object]"`;
+
+exports[`validateConfig() should throw if config is incorrect 14`] = `"In your config, \\"question\\" should be a string at least 1 characters in length. Received: undefined"`;
+
+exports[`validateConfig() should throw if config is incorrect 15`] = `"In your config, \\"templateVariable\\" should be a string at least 1 characters in length. Received: undefined"`;
+
+exports[`validateConfig() should throw if config is incorrect 16`] = `"In your config, \\"templatePath\\" should be a should be a path (string). Received: undefined"`;

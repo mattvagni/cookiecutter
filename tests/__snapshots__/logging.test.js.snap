@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should correctly log when a file is added 1`] = `
+Array [
+  "[32m+[39m",
+  "[1mAdded:[22m",
+  "[36mOmg does this work[39m",
+]
+`;
+
+exports[`should correctly log when a file is added 2`] = `
+Array [
+  "[31m![39m",
+  "[31mThis is an error message[39m",
+]
+`;
+
+exports[`should correctly log when a file is added 3`] = `
+Array [
+  "",
+]
+`;
+
+exports[`should correctly log when a file is added 4`] = `
+Array [
+  " ",
+  "[2mThis is the first line of the stack[22m",
+]
+`;
+
+exports[`should correctly log when a file is added 5`] = `
+Array [
+  " ",
+  "[2mThis is the second line of the stack[22m",
+]
+`;
+
+exports[`should correctly log when a file is added 6`] = `
+Array [
+  " ",
+  "[2mThis is the third line of the stack[22m",
+]
+`;
+
+exports[`should correctly log when a file is added 7`] = `
+Array [
+  " ",
+  "",
+]
+`;

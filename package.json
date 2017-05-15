@@ -17,5 +17,16 @@
   },
   "devDependencies": {
     "jest": "^20.0.1"
+  },
+  "jest": {
+    "coverageDirectory": "./coverage",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "text-summary"
+    ]
   }
 }

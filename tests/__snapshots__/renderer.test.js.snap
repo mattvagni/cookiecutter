@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renderFiles() should correctly render the files when the template is a folder 1`] = `
+"import React from 'react';
+
+const number = A;
+
+class Bar React.Component {
+    render() {
+        return <div>Hello world {number}</div>;
+    }
+}
+
+export default Bar"
+`;
+
+exports[`renderFiles() should correctly render the files when the template is a folder 2`] = `"console.log('Bar');"`;
+
+exports[`renderFiles() should correctly render the files when the template is just a path 1`] = `
+"import React from 'react';
+
+class Baz React.Component {
+    render() {
+        return <div>Im a container</div>;
+    }
+}
+
+export default Baz"
+`;
+
+exports[`renderFiles() should throw an error if the output of a template allready exists 1`] = `"tests/test-templates-output/Bar/index.js already exists."`;
