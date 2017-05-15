@@ -36,4 +36,4 @@ class Baz React.Component {
 export default Baz"
 `;
 
-exports[`renderFiles() should throw an error if the output of a template allready exists 1`] = `"tests/test-templates-output/Bar/index.js already exists."`;
+exports[`renderFiles() should throw an error if the output of a template allready exists 1`] = `"tests/lib/test-templates-output/Bar/index.js already exists."`;

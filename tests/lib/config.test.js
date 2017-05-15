@@ -1,4 +1,4 @@
-const { validateConfig } = require("../src/lib/config");
+const { validateConfig } = require("../../src/lib/config");
 
 function getCorrectConfig() {
     return [
