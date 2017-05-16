@@ -100,7 +100,7 @@ function validate(schema, config, key=ROOT_KEY) {
 
 function getConfig() {
     const pwd = process.env.PWD;
-    var config = require(path.join(pwd, 'cookie.config.js'));
+    var config = require(path.join(pwd, 'TBD.config.js'));
     return validateConfig(config);
 }
 
