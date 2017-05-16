@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 const {renderFiles} = require('./lib/renderer');
 const {makeFieldQuestions, makeTemplateQuestion} = require('./lib/questions');
 const {getTemplateConfig} = require('./lib/config');
+const log = require('./lib/logging');
 
 Promise.resolve()
     .then(() => {
@@ -17,8 +18,9 @@ Promise.resolve()
             };
         });
     })
-    .then(renderFiles)
+    .then(config => {
+        return renderFiles(config);
+    })
     .catch(e => {
-        console.error(e);
         log.error(e);
     });

@@ -12,7 +12,6 @@
     "pretty-error": "^2.1.0"
   },
   "scripts": {
-    "cli": "node src/index.js",
     "test": "jest"
   },
   "devDependencies": {
