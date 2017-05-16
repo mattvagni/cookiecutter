@@ -6,10 +6,9 @@
   "author": "@mattvagni",
   "license": "MIT",
   "dependencies": {
-    "colors": "^1.1.2",
-    "fs-extra": "^3.0.1",
-    "inquirer": "^3.0.6",
-    "pretty-error": "^2.1.0"
+    "colors": "1.1.2",
+    "fs-extra": "3.0.1",
+    "inquirer": "3.0.6"
   },
   "scripts": {
     "test": "jest"
