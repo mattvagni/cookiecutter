@@ -49,3 +49,5 @@ exports[`validateConfig() should throw if config is incorrect 14`] = `"In your c
 exports[`validateConfig() should throw if config is incorrect 15`] = `"In your config, \\"templateVariable\\" should be a string at least 1 characters in length. Received: undefined"`;
 
 exports[`validateConfig() should throw if config is incorrect 16`] = `"In your config, \\"templatePath\\" should be a should be a path (string). Received: undefined"`;
+
+exports[`validateConfig() should throw if config is incorrect 17`] = `"Your config should be an array. Received an array: "`;

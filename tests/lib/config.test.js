@@ -53,6 +53,7 @@ describe("validateConfig()", () => {
                 delete config[0].templatePath;
                 return config;
             },
+            (config) => [],
         ].forEach(incorrectConfig => {
             const func = () => validateConfig(incorrectConfig(getCorrectConfig()))
             expect(func).toThrowErrorMatchingSnapshot();

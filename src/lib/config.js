@@ -37,7 +37,7 @@ function errorReceived(val) {
     return `Received: ${val}`;
 }
 
-function isString(minLength = 0, helpText) {
+function isString(minLength = 0) {
     return (key, val) => {
         if (typeof val === "string" && val.length >= minLength) {
             return;
@@ -46,7 +46,7 @@ function isString(minLength = 0, helpText) {
     }
 }
 
-function isPath(helpText) {
+function isPath() {
     return (key, val) => {
         if (typeof val === "string" && val) {
             return;
@@ -55,7 +55,7 @@ function isPath(helpText) {
     }
 }
 
-function isFunction(val, helpText) {
+function isFunction(val) {
     return (key, val) => {
         if (typeof val === "function") {
             return;
@@ -64,9 +64,9 @@ function isFunction(val, helpText) {
     }
 }
 
-function isArray(minLength = 0, helpText) {
+function isArray(minLength = 0) {
     return (key, val) => {
-        if (Array.isArray(val, (minLength = 1))) {
+        if (Array.isArray(val) && val.length >= minLength) {
             return;
         };
         throw new Error(`${errorPrefix(key)} should be an array. ${errorReceived(val)}`);
