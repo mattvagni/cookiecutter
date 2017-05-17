@@ -1,17 +1,16 @@
-# This project is a WIP.
-:rotating_light::rotating_light::rotating_light::rotating_light:
-Should be ready soon but probably isn't functional atm ;)
-:rotating_light::rotating_light::rotating_light::rotating_light:
-
----
-
 # Cookiecutter
 
 [![CircleCI](https://circleci.com/gh/mattvagni/cookiecutter/tree/master.svg?style=svg)](https://circleci.com/gh/mattvagni/cookiecutter/tree/master)
 
-Like Yeoman but much, much simpler. Create boilerplate files/folders based on templates you provide.
+A CLI for creating boilerplate files/folders based on templates you provide. Like [Yeoman](http://yeoman.io/) or Python's [Cookiecutter](https://github.com/audreyr/cookiecutter) but much, much simpler.
+
+Show me:
 
 ![Example with Error](./images/WithError.gif)
+
+It is designed for existing projects where you want an easy way to create boilerplate files - instead of having to copy paste an existing file & then remember to make the necessary changes.
+
+A good use-case for cookiecutter is, for example, creating a new Redux connected React component within a project. Not hard... but also not fun.
 
 Cookiecutter supports:
 - :white_check_mark: Multiple templates with the ability to pick which template to use via the CLI.
@@ -20,8 +19,10 @@ Cookiecutter supports:
 - :white_check_mark: Any type of file or folder structure.
 
 Cookiecutter **doesn't** support:
-- Conditionals or any other logic in templates. (You can however achieve similiar things by having multiple templates).
-- TODO: Add more things this doesn't do
+- Conditionals or any other logic in templates. (You can however achieve similar things by having multiple templates).
+- Bootstrapping a project from scratch (i.e I have no code but need to set a project up)
+- Adding code to existing files
+- Lots of other things Yeoman _does_ support. If your use-case is complex, cookiecutter is probably not fit for purpose.
 
 ## Quick Setup
 First `npm install --save-dev cookiecutter`. You can also install this globally if you prefer.
@@ -35,7 +36,7 @@ The add the following to your package.json (no need to do this if you are using 
 You can now start creating your template. For example if you create a 'templates' folder in your root and add the following template:
 
 ```js
-// in templates/COMPONENT_NAME.js
+// templates/COMPONENT_NAME.js
 import React from 'react';
 
 class COMPONENT_NAME extends React.Component {
@@ -47,9 +48,9 @@ class COMPONENT_NAME extends React.Component {
 export default COMPONENT_NAME;
 ```
 
-You can now configure Cookiecutter to replace the string `COMPONENT_NAME` like so by creating a file in the root of your project called `cookiecutter.config.js`:
+You can now configure Cookiecutter to replace the string `COMPONENT_NAME` like so by creating a file in the root of your project called `cookiecutter.config.js`. Cookiecutter will always look in your root for a file called `cookiecutter.config.js`.
 ```js
-// in cookiecutter.config.js
+// cookiecutter.config.js
 module.exports = [
     {
         name: "Normal React Component",
@@ -66,11 +67,11 @@ module.exports = [
 
 ```
 
-If you now run `npm cookiecutter` you will be prompted to pick which template you'd like to use. After which you will be asked to answer each field's question. It should look something like this:
+If you now run `npm run cookiecutter` you will be prompted to pick which template you'd like to use. After which you will be asked to answer each field's question. It should look something like this:
 
-![Example with Error](./images/ExampleComponent.gif)
+![Example from Tutorial](./images/ExampleComponent.gif)
 
-That's it. Cookiecutter now create the following files:
+That's it. Cookiecutter now created the following file:
 
 ```diff
     - src
@@ -83,7 +84,7 @@ That's it. Cookiecutter now create the following files:
 Cookiecutter will **never** overwrite any existing files.
 
 ## Validating fields / custom validation
-To do this you can add `isValid` and a custome `errorMessage` to a fields configuration.
+To do this you can add `isValid` and a custom `errorMessage` to a fields configuration.
 Using the example above you could, for example, ensure component names follow a naming convention.
 
 ```diff
@@ -133,9 +134,9 @@ If you specify a folder as a template, then the folder will be created in the ou
     - index.js
     - styles.css
 ```
-Cookiecutter will recursively copy all files within your templates folder and replace any occurences of your specificed fields.
+Cookiecutter will recursively copy all files within your templates folder and replace any occurrences of your specified fields.
 
-If you don't want this behaviour, specify a file as your template's `templatePath`.
+If you don't want this behavior, specify a file as your template's `templatePath`.
 
 ## Contributing
 After cloning the repo `yarn install`.
@@ -148,4 +149,4 @@ To run tests run `yarn test`.
 - Offer a set of helpers for validation user input. Esp. for common 'cases' such as snake_case, PascalCase etc.
 - Create an 'init' script which talks you through setting something up.
 - Allow users to specify a custom path for their config.
-- Offer the ability for people to show a message that is only shown AFTER a template is successfuly rendered. This could be helpful for things such as help-text such as: 'You can import this component like so: ...'
+- Offer the ability for people to show a message that is only shown AFTER a template is successfully rendered. This could be helpful for things such as help-text such as: 'You can import this component like so: ...'

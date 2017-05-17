@@ -31,5 +31,8 @@
     "testPathIgnorePatterns": [
       "test-templates-output"
     ]
-  }
+  },
+  "keywords": [
+    "boilerplate", "generator", "yeoman", "cli", "skeleton"
+  ]
 }
