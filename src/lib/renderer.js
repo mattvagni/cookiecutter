@@ -1,15 +1,15 @@
 const fs = require("fs-extra");
 const path = require("path");
-const os = require('os');
-const colors = require('colors');
+const os = require("os");
+const colors = require("colors");
 
-const {getTemplateConfig} = require('./config');
+const { getTemplateConfig } = require("./config");
 const log = require("./logging");
 
 function replaceFields(string, fields) {
     let result = string;
     Object.keys(fields).forEach(fieldName => {
-         result = result.replace(new RegExp(fieldName, 'g'), fields[fieldName]);
+        result = result.replace(new RegExp(fieldName, "g"), fields[fieldName]);
     });
     return result;
 }
@@ -19,34 +19,62 @@ function renderFiles({ templateName, fields }) {
     const pwd = process.env.PWD;
     const destinationDirectory = path.resolve(pwd, config.outputPath);
     const templateDirectory = path.resolve(pwd, config.templatePath);
-    const templateStats = fs.statSync(templateDirectory);
+    const isFolderTemplate = isDirectory(templateDirectory);
 
+    let templateFiles = [];
     let filesToOutput = [];
 
-    if (templateStats.isDirectory()) {
+    function isDirectory(p) {
+        return fs.statSync(p).isDirectory();
+    }
 
-        const files = fs.readdirSync(templateDirectory);
-        const {base: folderName} = path.parse(templateDirectory);
+    function getTemplateFiles(dir) {
+        if (isDirectory(dir)) {
+            const files = fs.readdirSync(dir);
 
-        filesToOutput = files.map(file => {
+            files.forEach(fileDir => {
+                const fileDirWithFolder = path.resolve(dir, fileDir);
+
+                if (isDirectory(fileDirWithFolder)) {
+                    getTemplateFiles(fileDirWithFolder);
+                } else {
+                    templateFiles.push(fileDirWithFolder);
+                }
+            });
+        } else {
+            templateFiles.push(dir);
+        }
+    }
+
+    getTemplateFiles(templateDirectory);
+
+    filesToOutput = templateFiles.map(filePath => {
+
+        if (isFolderTemplate) {
+            const { base } = path.parse(templateDirectory);
+
             return {
-                src: path.join(templateDirectory, file),
+                src: filePath,
                 dest: path.join(
                     destinationDirectory,
-                    replaceFields(folderName, fields),
-                    replaceFields(file, fields)
+                    replaceFields(base, fields),
+                    replaceFields(filePath.replace(templateDirectory, ''), fields)
                 )
             };
-        });
-    } else if (templateStats.isFile()) {
-        const {name, ext} = path.parse(templateDirectory);
-        filesToOutput = [
-            {
-                src: path.join(templateDirectory),
-                dest: path.join(destinationDirectory, replaceFields(name, fields) + ext),
-            }
-        ];
-    }
+
+        } else {
+            const { name, ext } = path.parse(templateDirectory);
+            return {
+                src: templateDirectory,
+                dest: path.join(
+                    destinationDirectory,
+                    replaceFields(name + ext, fields)
+                )
+            };
+        }
+    });
+
+    console.log(filesToOutput);
 
     // Check if any of the files we are about to create exist
     // and throw an error if they do.
@@ -64,7 +92,7 @@ function renderFiles({ templateName, fields }) {
         log.addedFile(path.relative(pwd, dest));
     });
 
-    console.log(colors.green.bold('\nHappy editing!', '\n'));
+    console.log(colors.green.bold("\nHappy editing!", "\n"));
 }
 
 module.exports = {

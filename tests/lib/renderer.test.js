@@ -55,6 +55,7 @@ describe('renderFiles()', () => {
 
         expect(fs.readFileSync(outputPath + '/Bar/index.js', 'utf8')).toMatchSnapshot();
         expect(fs.readFileSync(outputPath + '/Bar/styles.css', 'utf8')).toMatchSnapshot();
+        expect(fs.readFileSync(outputPath + '/Bar/sub-folder/Bar.js', 'utf8')).toMatchSnapshot();
     });
 
     it('should throw an error if the output of a template allready exists', () => {
