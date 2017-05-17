@@ -1,4 +1,2 @@
-- Support folder templates being recursively deep
 - Finish README (make gifs)
 - git tag npm releases
-- blacklist component names such as .. etc
