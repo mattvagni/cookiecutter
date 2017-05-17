@@ -27,6 +27,9 @@
     "coverageReporters": [
       "lcov",
       "text-summary"
+    ],
+    "testPathIgnorePatterns": [
+      "test-templates-output"
     ]
   }
 }
