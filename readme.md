@@ -28,10 +28,8 @@ First `npm install --save-dev cookiecutter`. You can also install this globally 
 
 The add the following to your package.json (no need to do this if you are using yarn):
 ```json
-{
-    "scripts": {
-        "cookiecutter": "cookiecutter"
-    }
+"scripts": {
+    "cookiecutter": "cookiecutter"
 }
 ```
 You can now start creating your template. For example if you create a 'templates' folder in your root and add the following template:

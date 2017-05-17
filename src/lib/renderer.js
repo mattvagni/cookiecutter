@@ -74,8 +74,6 @@ function renderFiles({ templateName, fields }) {
         }
     });
 
-    console.log(filesToOutput);
-
     // Check if any of the files we are about to create exist
     // and throw an error if they do.
     filesToOutput.forEach(({src, dest}) => {

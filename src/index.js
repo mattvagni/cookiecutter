@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const inquirer = require('inquirer');
 const {renderFiles} = require('./lib/renderer');
 const {makeFieldQuestions, makeTemplateQuestion} = require('./lib/questions');
