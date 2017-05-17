@@ -76,7 +76,7 @@ That's it. Cookiecutter now created the following file:
 ```diff
     - src
       - components
-+       - YourComponentName.js
++       - ExampleComponent.js
         - OtherComponent.js
         - Etc.js
 ```
