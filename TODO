@@ -1,5 +1,6 @@
 - Ignore test output files in jest config
 - Support folder templates being recursively deep
 - Finish README (make gifs)
-- Add circle integration
 - git tag npm releases
+- blacklist component names such as .. etc
+- config not working with length of array if config is literally an empty array.
