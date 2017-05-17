@@ -1,9 +1,11 @@
 {
   "name": "cookie-cutter",
   "version": "0.0.1",
-  "description": "CLI for quickly creating boilerplate files such as React components based off templates.",
-  "main": "src/index.js",
-  "author": "@mattvagni",
+  "description": "Pretty CLI for quickly creating boilerplate files based on templates you provide.",
+  "bin": {
+    "cookiecutter": "src/index.js"
+  },
+  "author": "mattvagni",
   "license": "MIT",
   "dependencies": {
     "colors": "1.1.2",

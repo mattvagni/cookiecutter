@@ -24,6 +24,7 @@ function renderFiles({ templateName, fields }) {
     let filesToOutput = [];
 
     if (templateStats.isDirectory()) {
+
         const files = fs.readdirSync(templateDirectory);
         const {base: folderName} = path.parse(templateDirectory);
 

@@ -1,27 +1,34 @@
-# TBD
+# This project is a WIP.
+:rotating_light::rotating_light::rotating_light::rotating_light:
+Should be ready soon but probably isn't functional atm ;)
+:rotating_light::rotating_light::rotating_light::rotating_light:
+
+---
+
+# Cookiecutter
 
 Like Yeoman but much, much simpler. Create boilerplate files/folders based on templates you provide.
 
 TODO: Insert cool CLI gif
 
-TBD supports:
+Cookiecutter supports:
 - Multiple templates with the ability to pick which template to use via the CLI.
 - Multiple fields per template with the ability to specify them from the CLI.
 - Custom validation & error messages for fields.
 - Any type of file or folder structure.
 
-TBD doesn't support:
+Cookiecutter doesn't support:
 - Conditionals or any other logic in templates. (You can however achieve similiar things by having multiple templates).
 - TODO: Add more things this doesn't do
 
 ## Quick Setup
-First `npm install --save-dev TBD`. You can also install this globally if you prefer.
+First `npm install --save-dev cookiecutter`. You can also install this globally if you prefer.
 
 The add the following to your package.json (no need to do this if you are using yarn):
 ```json
 {
     "scripts": {
-        "TBD": "TBD"
+        "cookiecutter": "cookiecutter"
     }
 }
 ```
@@ -40,9 +47,9 @@ class COMPONENT_NAME extends React.Component {
 export default COMPONENT_NAME;
 ```
 
-You can now configure TBD to replace the string `COMPONENT_NAME` like so by creating a file in the root of your project called TBD.config.js:
+You can now configure Cookiecutter to replace the string `COMPONENT_NAME` like so by creating a file in the root of your project called Cookiecutter.config.js:
 ```js
-// in TBD.config.js
+// in Cookiecutter.config.js
 module.exports = [
     {
         name: "Normal React Component",
@@ -59,11 +66,11 @@ module.exports = [
 
 ```
 
-If you now run `npm TBD` you will be prompted to pick which template you'd like to use. After which you will be asked to answer each field's question. It should look something like this:
+If you now run `npm cookiecutter` you will be prompted to pick which template you'd like to use. After which you will be asked to answer each field's question. It should look something like this:
 
 TODO: Insert gif here of it working.
 
-That's it. TBD now create the following files:
+That's it. Cookiecutter now create the following files:
 
 ```diff
     - src
@@ -73,14 +80,14 @@ That's it. TBD now create the following files:
         - Etc.js
 ```
 
-TBD will **never** overwrite any existing files.
+Cookiecutter will **never** overwrite any existing files.
 
 ## Validating fields / custom validation
 To do this you can add `isValid` and a custome `errorMessage` to a fields configuration.
 Using the example above you could, for example, ensure component names follow a naming convention.
 
 ```diff
-// in TBD.config.js
+// in Cookiecutter.config.js
 module.exports = [
     {
        name: "Normal React Component",
@@ -102,11 +109,11 @@ module.exports = [
 ```
 
 ## Multiple templates
-You can configure multiple templates and TBD will let you pick which template to use. The template's 'name' is what will be used in the CLI when asking which template to use.
+You can configure multiple templates and Cookiecutter will let you pick which template to use. The template's 'name' is what will be used in the CLI when asking which template to use.
 
 You can specify multiple templates like so:
 ```js
-// in TBD.config.js
+// in Cookiecutter.config.js
 module.exports = [
     {
        // Configuration for the 1st template
@@ -126,7 +133,7 @@ If you specify a folder as a template, then the folder will be created in the ou
     - index.js
     - styles.css
 ```
-TBD will recursively copy all files within your templates folder and replace any occurences of your specificed fields.
+Cookiecutter will recursively copy all files within your templates folder and replace any occurences of your specificed fields.
 
 If you don't want this behaviour, specify a file as your template's `templatePath`.
 
@@ -146,5 +153,5 @@ To run tests run `yarn test`.
 ## TODO Before Publishing
 - [] Finish Readme (make gifs)
 - [] Make sure folder/template rendering is recursive in terms of folder structure
-- [] Come up with a name
+- [x] Come up with a name
 - [] Update yarn.lock (I think there are old deps)
