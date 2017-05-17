@@ -7,6 +7,8 @@ Should be ready soon but probably isn't functional atm ;)
 
 # Cookiecutter
 
+[![CircleCI](https://circleci.com/gh/mattvagni/cookiecutter/tree/master.svg?style=svg)](https://circleci.com/gh/mattvagni/cookiecutter/tree/master)
+
 Like Yeoman but much, much simpler. Create boilerplate files/folders based on templates you provide.
 
 TODO: Insert cool CLI gif
