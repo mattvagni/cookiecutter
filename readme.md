@@ -12,12 +12,12 @@ Like Yeoman but much, much simpler. Create boilerplate files/folders based on te
 TODO: Insert cool CLI gif
 
 Cookiecutter supports:
-- Multiple templates with the ability to pick which template to use via the CLI.
-- Multiple fields per template with the ability to specify them from the CLI.
-- Custom validation & error messages for fields.
-- Any type of file or folder structure.
+- :white_check_mark: Multiple templates with the ability to pick which template to use via the CLI.
+- :white_check_mark: Multiple fields per template with the ability to specify them from the CLI.
+- :white_check_mark: Custom validation & error messages for fields.
+- :white_check_mark: Any type of file or folder structure.
 
-Cookiecutter doesn't support:
+Cookiecutter **doesn't** support:
 - Conditionals or any other logic in templates. (You can however achieve similiar things by having multiple templates).
 - TODO: Add more things this doesn't do
 
@@ -47,9 +47,9 @@ class COMPONENT_NAME extends React.Component {
 export default COMPONENT_NAME;
 ```
 
-You can now configure Cookiecutter to replace the string `COMPONENT_NAME` like so by creating a file in the root of your project called Cookiecutter.config.js:
+You can now configure Cookiecutter to replace the string `COMPONENT_NAME` like so by creating a file in the root of your project called `cookiecutter.config.js`:
 ```js
-// in Cookiecutter.config.js
+// in cookiecutter.config.js
 module.exports = [
     {
         name: "Normal React Component",
@@ -87,7 +87,7 @@ To do this you can add `isValid` and a custome `errorMessage` to a fields config
 Using the example above you could, for example, ensure component names follow a naming convention.
 
 ```diff
-// in Cookiecutter.config.js
+// in cookiecutter.config.js
 module.exports = [
     {
        name: "Normal React Component",
@@ -113,7 +113,7 @@ You can configure multiple templates and Cookiecutter will let you pick which te
 
 You can specify multiple templates like so:
 ```js
-// in Cookiecutter.config.js
+// in cookiecutter.config.js
 module.exports = [
     {
        // Configuration for the 1st template
@@ -145,13 +145,7 @@ You can play with the cli in the 'playground' folder. To do this, `cd` into it a
 To run tests run `yarn test`.
 
 ## Roadmap/Plans
-- [] Offer a set of helpers for validation user input. Esp. for common 'cases' such as snake_case, PascalCase etc.
-- [] Create an 'init' script which talks you through setting something up.
-- [] Allow users to specify a custom path for their config.
-- [] Offer the ability for people to show a message that is only shown AFTER a template is successfuly rendered. This could be helpful for things such as help-text such as: 'You can import this component like so: ...'
-
-## TODO Before Publishing
-- [] Finish Readme (make gifs)
-- [] Make sure folder/template rendering is recursive in terms of folder structure
-- [x] Come up with a name
-- [] Update yarn.lock (I think there are old deps)
+- Offer a set of helpers for validation user input. Esp. for common 'cases' such as snake_case, PascalCase etc.
+- Create an 'init' script which talks you through setting something up.
+- Allow users to specify a custom path for their config.
+- Offer the ability for people to show a message that is only shown AFTER a template is successfuly rendered. This could be helpful for things such as help-text such as: 'You can import this component like so: ...'

@@ -1,0 +1,3 @@
+- Ignore test output files in jest config
+- Support folder templates being recursively deep
+- Finish README (make gifs)

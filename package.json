@@ -1,5 +1,5 @@
 {
-  "name": "cookie-cutter",
+  "name": "cookiecutter",
   "version": "0.0.1",
   "description": "Pretty CLI for quickly creating boilerplate files based on templates you provide.",
   "bin": {
