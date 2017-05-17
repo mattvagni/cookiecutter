@@ -11,7 +11,7 @@ Should be ready soon but probably isn't functional atm ;)
 
 Like Yeoman but much, much simpler. Create boilerplate files/folders based on templates you provide.
 
-TODO: Insert cool CLI gif
+![Example with Error](./images/WithError.gif)
 
 Cookiecutter supports:
 - :white_check_mark: Multiple templates with the ability to pick which template to use via the CLI.
@@ -68,7 +68,7 @@ module.exports = [
 
 If you now run `npm cookiecutter` you will be prompted to pick which template you'd like to use. After which you will be asked to answer each field's question. It should look something like this:
 
-TODO: Insert gif here of it working.
+![Example with Error](./images/ExampleComponent.gif)
 
 That's it. Cookiecutter now create the following files:
 
