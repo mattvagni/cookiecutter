@@ -1,4 +1,4 @@
-const log = require('../../src/lib/logging');
+const log = require('../logging');
 
 
 it('should correctly log when a file is added', () => {
