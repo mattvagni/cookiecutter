@@ -1,6 +1,6 @@
-# Cookiecutter
+# cookiecutter :cookie: :scissors:
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/mattvagni/cookiecutter.svg)](https://greenkeeper.io/) [![CircleCI](https://circleci.com/gh/mattvagni/cookiecutter/tree/master.svg?style=svg)](https://circleci.com/gh/mattvagni/cookiecutter/tree/master)
+ [![CircleCI](https://circleci.com/gh/mattvagni/cookiecutter/tree/master.svg?style=svg)](https://circleci.com/gh/mattvagni/cookiecutter/tree/master) [![Greenkeeper badge](https://badges.greenkeeper.io/mattvagni/cookiecutter.svg)](https://greenkeeper.io/)
 
 A CLI for creating boilerplate files/folders based on templates you provide. Like [Yeoman](http://yeoman.io/) or Python's [Cookiecutter](https://github.com/audreyr/cookiecutter) but much, much simpler.
 
