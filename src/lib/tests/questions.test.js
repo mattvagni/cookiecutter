@@ -1,7 +1,7 @@
-const {getConfig} = require('../../src/lib/config');
-const {makeTemplateQuestion, makeFieldQuestions} = require('../../src/lib/questions');
+const {getConfig} = require('../config');
+const {makeTemplateQuestion, makeFieldQuestions} = require('../questions');
 
-jest.mock('../../src/lib/config');
+jest.mock('../config');
 
 const testConfig = [
     {

@@ -1,8 +1,8 @@
-const {renderFiles} = require('../../src/lib/renderer');
-const {getTemplateConfig} = require('../../src/lib/config');
+const {renderFiles} = require('../renderer');
+const {getTemplateConfig} = require('../config');
 const fs = require('fs-extra');
 
-jest.mock('../../src/lib/config');
+jest.mock('../config');
 
 global.console = {
     log: jest.fn(),

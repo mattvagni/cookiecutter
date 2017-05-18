@@ -22,13 +22,15 @@
     "coverageDirectory": "./coverage",
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "src/**/*.js"
+      "src/**/*.js",
+      "!src/lib/tests/**/*.js"
     ],
     "coverageReporters": [
       "lcov",
       "text-summary"
     ],
     "testPathIgnorePatterns": [
+      "test-templates",
       "test-templates-output"
     ]
   },
