@@ -3,11 +3,19 @@
 const inquirer = require('inquirer');
 const {renderFiles} = require('./lib/renderer');
 const {makeFieldQuestions, makeTemplateQuestion} = require('./lib/questions');
-const {getTemplateConfig} = require('./lib/config');
+const {getConfig, getTemplateConfig} = require('./lib/config');
 const log = require('./lib/logging');
 
 Promise.resolve()
     .then(() => {
+
+        const config = getConfig();
+
+        // If there is only one template don't ask which template to use.
+        if (config.length === 1) {
+            return {templateName: config[0].name};
+        }
+
         return inquirer.prompt(makeTemplateQuestion());
     })
     .then(({ templateName }) => {
