@@ -12,17 +12,17 @@ It is designed for existing projects where you want an easy way to create boiler
 
 A good use-case for cookiecutter is, for example, creating a new Redux connected React component within a project. Not hard... but also not fun.
 
-Cookiecutter supports:
-- :white_check_mark: Multiple templates with the ability to pick which template to use via the CLI.
-- :white_check_mark: Multiple fields per template with the ability to specify them from the CLI.
-- :white_check_mark: Custom validation & error messages for fields.
-- :white_check_mark: Any type of file or folder structure.
+:white_check_mark: Cookiecutter supports:
+- Multiple templates with the ability to pick which template to use via the CLI.
+- Multiple fields per template with the ability to specify them from the CLI.
+- Custom validation & error messages for fields.
+- Any type of file or folder structure.
 
-Cookiecutter **doesn't** support:
-- :x: Conditionals or any other logic in templates. (You can however achieve similar things by having multiple templates).
-- :x: Bootstrapping a project from scratch (i.e I have no code but need to set a project up)
-- :x: Adding code to existing files
-- :x: Lots of other things Yeoman _does_ support. If your use-case is complex, cookiecutter might not cut it.
+:x: Cookiecutter **doesn't** support:
+- Conditionals or any other logic in templates. You can however achieve similar things by having multiple templates).
+- Bootstrapping a project from scratch (i.e I have no code but need to set a project up)
+- Adding code to existing files
+- Lots of other things Yeoman _does_ support. If your use-case is complex, cookiecutter might not cut it.
 
 ## Quick Setup
 First `npm install --save-dev cookiecutter`. You can also install this globally if you prefer.
