@@ -1,8 +1,6 @@
 # Cookiecutter
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/mattvagni/cookiecutter.svg)](https://greenkeeper.io/)
-
-[![CircleCI](https://circleci.com/gh/mattvagni/cookiecutter/tree/master.svg?style=svg)](https://circleci.com/gh/mattvagni/cookiecutter/tree/master)
+[![Greenkeeper badge](https://badges.greenkeeper.io/mattvagni/cookiecutter.svg)](https://greenkeeper.io/) [![CircleCI](https://circleci.com/gh/mattvagni/cookiecutter/tree/master.svg?style=svg)](https://circleci.com/gh/mattvagni/cookiecutter/tree/master)
 
 A CLI for creating boilerplate files/folders based on templates you provide. Like [Yeoman](http://yeoman.io/) or Python's [Cookiecutter](https://github.com/audreyr/cookiecutter) but much, much simpler.
 
@@ -21,10 +19,10 @@ Cookiecutter supports:
 - :white_check_mark: Any type of file or folder structure.
 
 Cookiecutter **doesn't** support:
-- Conditionals or any other logic in templates. (You can however achieve similar things by having multiple templates).
-- Bootstrapping a project from scratch (i.e I have no code but need to set a project up)
-- Adding code to existing files
-- Lots of other things Yeoman _does_ support. If your use-case is complex, cookiecutter is probably not fit for purpose.
+- :x: Conditionals or any other logic in templates. (You can however achieve similar things by having multiple templates).
+- :x: Bootstrapping a project from scratch (i.e I have no code but need to set a project up)
+- :x: Adding code to existing files
+- :x: Lots of other things Yeoman _does_ support. If your use-case is complex, cookiecutter might not cut it.
 
 ## Quick Setup
 First `npm install --save-dev cookiecutter`. You can also install this globally if you prefer.
