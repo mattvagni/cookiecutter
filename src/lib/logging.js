@@ -1,4 +1,4 @@
-const colors = require("colors/safe");
+const colors = require('colors/safe');
 const os = require('os');
 
 function logAddedFile(filePath) {
@@ -24,4 +24,4 @@ function logError(err) {
 module.exports = {
     error: logError,
     addedFile: logAddedFile,
-}
+};

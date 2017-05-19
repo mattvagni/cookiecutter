@@ -11,24 +11,24 @@ const testConfig = [
                 templateVariable: 'LETTER',
                 question: 'What is your favourite letter?',
                 errorMessage: 'Nope',
-                isValid: function(s) {
-                    return s === '42'
-                }
+                isValid(s) {
+                    return s === '42';
+                },
             },
             {
                 templateVariable: 'NAME',
                 question: 'What is your name?',
-                isValid: function(s) {
-                    return s === '42'
-                }
+                isValid(s) {
+                    return s === '42';
+                },
             },
             {
                 templateVariable: 'NUMBER',
-                question: 'What is your favourite number?'
+                question: 'What is your favourite number?',
             },
-        ]
-    }
-]
+        ],
+    },
+];
 
 getConfig.mockImplementation(() => testConfig);
 

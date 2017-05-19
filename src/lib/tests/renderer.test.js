@@ -6,12 +6,12 @@ jest.mock('../config');
 
 global.console = {
     log: jest.fn(),
-    error: jest.fn()
+    error: jest.fn(),
 };
 
 describe('renderFiles()', () => {
 
-    const outputPath = __dirname + '/test-templates-output';
+    const outputPath = `${__dirname }/test-templates-output`;
 
     afterEach(() => {
         fs.removeSync(outputPath);
@@ -21,27 +21,27 @@ describe('renderFiles()', () => {
 
         getTemplateConfig.mockImplementation(() => {
             return {
-                templatePath: __dirname + '/test-templates/CONTAINER_NAME.js',
-                outputPath: outputPath,
+                templatePath: `${__dirname }/test-templates/CONTAINER_NAME.js`,
+                outputPath,
             };
         });
 
         renderFiles({
             templateName: '',
             fields: {
-                CONTAINER_NAME: 'Baz'
-            }
+                CONTAINER_NAME: 'Baz',
+            },
         });
 
-        expect(fs.readFileSync(outputPath + '/Baz.js', 'utf8')).toMatchSnapshot();
+        expect(fs.readFileSync(`${outputPath }/Baz.js`, 'utf8')).toMatchSnapshot();
     });
 
     it('should correctly render the files when the template is a folder', () => {
 
         getTemplateConfig.mockImplementation(() => {
             return {
-                templatePath: __dirname + '/test-templates/COMPONENT_NAME',
-                outputPath: outputPath,
+                templatePath: `${__dirname }/test-templates/COMPONENT_NAME`,
+                outputPath,
             };
         });
 
@@ -49,31 +49,31 @@ describe('renderFiles()', () => {
             templateName: '',
             fields: {
                 COMPONENT_NAME: 'Bar',
-                specialNumber: 'A'
-            }
+                specialNumber: 'A',
+            },
         });
 
-        expect(fs.readFileSync(outputPath + '/Bar/index.js', 'utf8')).toMatchSnapshot();
-        expect(fs.readFileSync(outputPath + '/Bar/styles.css', 'utf8')).toMatchSnapshot();
-        expect(fs.readFileSync(outputPath + '/Bar/sub-folder/Bar.js', 'utf8')).toMatchSnapshot();
+        expect(fs.readFileSync(`${outputPath }/Bar/index.js`, 'utf8')).toMatchSnapshot();
+        expect(fs.readFileSync(`${outputPath }/Bar/styles.css`, 'utf8')).toMatchSnapshot();
+        expect(fs.readFileSync(`${outputPath }/Bar/sub-folder/Bar.js`, 'utf8')).toMatchSnapshot();
     });
 
     it('should throw an error if the output of a template allready exists', () => {
 
         getTemplateConfig.mockImplementation(() => {
             return {
-                templatePath: __dirname + '/test-templates/COMPONENT_NAME',
-                outputPath: outputPath,
+                templatePath: `${__dirname }/test-templates/COMPONENT_NAME`,
+                outputPath,
             };
         });
 
-        const func = () => {
+        function func() {
             renderFiles({
                 templateName: '',
                 fields: {
                     COMPONENT_NAME: 'Bar',
-                    specialNumber: 'A'
-                }
+                    specialNumber: 'A',
+                },
             });
         }
 

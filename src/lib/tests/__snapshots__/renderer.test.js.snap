@@ -24,7 +24,10 @@ Styles for Bar component
 }"
 `;
 
-exports[`renderFiles() should correctly render the files when the template is a folder 3`] = `"console.log('Bar');"`;
+exports[`renderFiles() should correctly render the files when the template is a folder 3`] = `
+"console.log('Bar');
+"
+`;
 
 exports[`renderFiles() should correctly render the files when the template is just a path 1`] = `
 "import React from 'react';
