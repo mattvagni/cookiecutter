@@ -1,6 +1,6 @@
 {
   "name": "cookiecutter",
-  "version": "0.0.7",
+  "version": "1.0.0",
   "description": "Pretty CLI for quickly creating boilerplate files based on templates you provide.",
   "bin": {
     "cookiecutter": "src/index.js"
