@@ -1,6 +1,6 @@
 const path = require('path');
 
-const ROOT_KEY = Math.random() * 42 + '__root';
+const ROOT_KEY = `${Math.random() * 42 }__root`;
 
 const CONFIG_SCHEMA = [
     isArray(1),
@@ -31,7 +31,7 @@ function errorReceived(val) {
     // Node console.logs arrays as just their values. That means
     // that without this an array with a single string is indistinguishable
     // from a string when console logged.
-    if (Array.isArray(val)){
+    if (Array.isArray(val)) {
         return `Received an array: ${val}`;
     }
     return `Received: ${val}`;
@@ -39,68 +39,68 @@ function errorReceived(val) {
 
 function isString(minLength = 0) {
     return (key, val) => {
-        if (typeof val === "string" && val.length >= minLength) {
+        if (typeof val === 'string' && val.length >= minLength) {
             return;
-        };
+        }
         throw new Error(`${errorPrefix(key)} should be a string at least ${minLength} characters in length. ${errorReceived(val)}`);
-    }
+    };
 }
 
 function isPath() {
     return (key, val) => {
-        if (typeof val === "string" && val) {
+        if (typeof val === 'string' && val) {
             return;
-        };
+        }
         throw new Error(`${errorPrefix(key)} should be a should be a path (string). ${errorReceived(val)}`);
-    }
+    };
 }
 
-function isFunction(val) {
+function isFunction() {
     return (key, val) => {
-        if (typeof val === "function") {
+        if (typeof val === 'function') {
             return;
-        };
+        }
         throw new Error(`${errorPrefix(key)} should be a function. ${errorReceived(val)}`);
-    }
+    };
 }
 
 function isArray(minLength = 0) {
     return (key, val) => {
         if (Array.isArray(val) && val.length >= minLength) {
             return;
-        };
+        }
         throw new Error(`${errorPrefix(key)} should be an array. ${errorReceived(val)}`);
-    }
+    };
 }
 
 function isOptional(fieldTypeFunc) {
-    return (key, val) => typeof val === "undefined" || fieldTypeFunc(key, val);
+    return (key, val) => typeof val === 'undefined' || fieldTypeFunc(key, val);
 }
 
-function validate(schema, config, key=ROOT_KEY) {
+function validate(schema, config, key = ROOT_KEY) {
 
     if (Array.isArray(schema)) {
-        let [isValid, subSchema] = schema;
+        const [isValid, subSchema] = schema;
         isValid(key, config);
         config.forEach(c => validate(subSchema, c));
         return;
     }
 
-    Object.keys(schema).forEach(key => {
-        const currentConfigValue = config[key];
+    Object.keys(schema).forEach(schemaKey => {
+        const currentConfigValue = config[schemaKey];
 
-        if (Array.isArray(schema[key])) {
-           validate(schema[key], currentConfigValue, key);
+        if (Array.isArray(schema[schemaKey])) {
+            validate(schema[schemaKey], currentConfigValue, schemaKey);
         } else {
-            let isValid = schema[key];
-            isValid(key, currentConfigValue);
+            const isValid = schema[schemaKey];
+            isValid(schemaKey, currentConfigValue);
         }
     });
 }
 
 function getConfig() {
     const pwd = process.env.PWD;
-    var config = require(path.join(pwd, 'cookiecutter.config.js'));
+    const config = require(path.join(pwd, 'cookiecutter.config.js'));
     return validateConfig(config);
 }
 
@@ -117,7 +117,5 @@ function validateConfig(config) {
 module.exports = {
     getConfig,
     getTemplateConfig,
-    validateConfig
-}
-
-
+    validateConfig,
+};

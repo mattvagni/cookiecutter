@@ -1,27 +1,26 @@
-const fs = require("fs-extra");
-const path = require("path");
-const os = require("os");
-const colors = require("colors");
+const fs = require('fs-extra');
+const path = require('path');
+const colors = require('colors');
 
-const { getTemplateConfig } = require("./config");
-const log = require("./logging");
+const {getTemplateConfig} = require('./config');
+const log = require('./logging');
 
 function replaceFields(string, fields) {
     let result = string;
     Object.keys(fields).forEach(fieldName => {
-        result = result.replace(new RegExp(fieldName, "g"), fields[fieldName]);
+        result = result.replace(new RegExp(fieldName, 'g'), fields[fieldName]);
     });
     return result;
 }
 
-function renderFiles({ templateName, fields }) {
+function renderFiles({templateName, fields}) {
     const config = getTemplateConfig(templateName);
     const pwd = process.env.PWD;
     const destinationDirectory = path.resolve(pwd, config.outputPath);
     const templateDirectory = path.resolve(pwd, config.templatePath);
     const isFolderTemplate = isDirectory(templateDirectory);
 
-    let templateFiles = [];
+    const templateFiles = [];
     let filesToOutput = [];
 
     function isDirectory(p) {
@@ -51,7 +50,7 @@ function renderFiles({ templateName, fields }) {
     filesToOutput = templateFiles.map(filePath => {
 
         if (isFolderTemplate) {
-            const { base } = path.parse(templateDirectory);
+            const {base} = path.parse(templateDirectory);
 
             return {
                 src: filePath,
@@ -59,38 +58,38 @@ function renderFiles({ templateName, fields }) {
                     destinationDirectory,
                     replaceFields(base, fields),
                     replaceFields(filePath.replace(templateDirectory, ''), fields)
-                )
+                ),
             };
 
         } else {
-            const { name, ext } = path.parse(templateDirectory);
+            const {name, ext} = path.parse(templateDirectory);
             return {
                 src: templateDirectory,
                 dest: path.join(
                     destinationDirectory,
                     replaceFields(name + ext, fields)
-                )
+                ),
             };
         }
     });
 
     // Check if any of the files we are about to create exist
     // and throw an error if they do.
-    filesToOutput.forEach(({src, dest}) => {
+    filesToOutput.forEach(({dest}) => {
         if (fs.pathExistsSync(dest)) {
-           throw new Error(`${path.relative(pwd, dest)} already exists.`);
+            throw new Error(`${path.relative(pwd, dest)} already exists.`);
         }
     });
 
     filesToOutput.forEach(({src, dest}) => {
-        const fileContent = replaceFields(fs.readFileSync(src, "utf8"), fields);
+        const fileContent = replaceFields(fs.readFileSync(src, 'utf8'), fields);
 
         // Creates neccessary directories.
-        fs.outputFileSync(dest, fileContent, "utf8");
+        fs.outputFileSync(dest, fileContent, 'utf8');
         log.addedFile(path.relative(pwd, dest));
     });
 
-    console.log(colors.green.bold("\nHappy editing!", "\n"));
+    console.log(colors.green.bold('\nHappy editing!', '\n'));
 }
 
 module.exports = {

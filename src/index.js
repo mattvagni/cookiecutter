@@ -18,7 +18,7 @@ Promise.resolve()
 
         return inquirer.prompt(makeTemplateQuestion());
     })
-    .then(({ templateName }) => {
+    .then(({templateName}) => {
         const templateConfig = getTemplateConfig(templateName);
         const questions = makeFieldQuestions(templateConfig);
         return inquirer.prompt(questions).then(answers => {

@@ -144,9 +144,9 @@ After cloning the repo `yarn install`.
 You can play with the cli in the 'playground' folder. To do this, `cd` into it and run `. run.sh`. This is like running the cli once it's published and on npm but allows you to work on it locally.
 
 To run tests run `yarn test`.
+To lint files (this will also happen in CircleCI when you open a PR): `yarn lint`
 
 ## Roadmap/Plans
 - Offer a set of helpers for validation user input. Esp. for common 'cases' such as snake_case, PascalCase etc.
-- Create an 'init' script which talks you through setting something up.
 - Allow users to specify a custom path for their config.
 - Offer the ability for people to show a message that is only shown AFTER a template is successfully rendered. This could be helpful for things such as help-text such as: 'You can import this component like so: ...'
