@@ -1,6 +1,6 @@
 {
   "name": "cookiecutter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Pretty CLI for quickly creating boilerplate files based on templates you provide.",
   "bin": {
     "cookiecutter": "src/index.js"
@@ -10,7 +10,7 @@
   "dependencies": {
     "colors": "1.1.2",
     "fs-extra": "3.0.1",
-    "inquirer": "3.0.6"
+    "inquirer": "3.1.0"
   },
   "scripts": {
     "test": "jest",
@@ -19,7 +19,7 @@
   "devDependencies": {
     "eslint": "^3.19.0",
     "eslint-plugin-jest": "^20.0.3",
-    "jest": "20.0.1"
+    "jest": "20.0.4"
   },
   "jest": {
     "coverageDirectory": "./coverage",
