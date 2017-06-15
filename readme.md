@@ -146,6 +146,14 @@ You can play with the cli in the 'playground' folder. To do this, `cd` into it a
 To run tests run `yarn test`.
 To lint files (this will also happen in CircleCI when you open a PR): `yarn lint`
 
+## Changelog
+**1.0.1**
+- Updated `inquierer`.
+- Updated `jest`.
+
+**1.0.0**
+- Initial release
+
 ## Roadmap/Plans
 - Offer a set of helpers for validation user input. Esp. for common 'cases' such as snake_case, PascalCase etc.
 - Allow users to specify a custom path for their config.
