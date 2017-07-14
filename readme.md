@@ -138,6 +138,9 @@ Cookiecutter will recursively copy all files within your templates folder and re
 
 If you don't want this behavior, specify a file as your template's `templatePath`.
 
+## Custom config location
+If you would like your config to be somewhere else you can use the `-c=path/to/your/config.js` flag when you call cookiecutter.
+
 ## Contributing
 After cloning the repo `yarn install`.
 

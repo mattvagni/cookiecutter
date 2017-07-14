@@ -98,9 +98,9 @@ function validate(schema, config, key = ROOT_KEY) {
     });
 }
 
-function getConfig() {
+function getConfig(configPath = 'cookiecutter.config.js') {
     const pwd = process.env.PWD;
-    const config = require(path.join(pwd, 'cookiecutter.config.js'));
+    const config = require(path.join(pwd, configPath));
     return validateConfig(config);
 }
 

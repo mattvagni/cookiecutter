@@ -6,10 +6,13 @@ const {makeFieldQuestions, makeTemplateQuestion} = require('./lib/questions');
 const {getConfig, getTemplateConfig} = require('./lib/config');
 const log = require('./lib/logging');
 
+const configOption = process.argv.find(piece => piece.slice(0, 3) === '-c=');
+const configLocation = configOption ? configOption.slice(3) : 'cookiecutter.config.js';
+
 Promise.resolve()
     .then(() => {
 
-        const config = getConfig();
+        const config = getConfig(configLocation);
 
         // If there is only one template don't ask which template to use.
         if (config.length === 1) {
