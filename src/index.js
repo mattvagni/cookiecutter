@@ -19,10 +19,10 @@ Promise.resolve()
             return {templateName: config[0].name};
         }
 
-        return inquirer.prompt(makeTemplateQuestion());
+        return inquirer.prompt(makeTemplateQuestion(configLocation));
     })
     .then(({templateName}) => {
-        const templateConfig = getTemplateConfig(templateName);
+        const templateConfig = getTemplateConfig(templateName, configLocation);
         const questions = makeFieldQuestions(templateConfig);
         return inquirer.prompt(questions).then(answers => {
             return {

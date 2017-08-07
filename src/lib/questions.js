@@ -3,13 +3,13 @@ const {getConfig} = require('./config');
 /**
  * The initial inquierer question.
  */
-function makeTemplateQuestion() {
+function makeTemplateQuestion(configPath) {
     return [
         {
             type: 'list',
             name: 'templateName',
             message: 'What would you like to create?',
-            choices: getConfig().map(template => template.name),
+            choices: getConfig(configPath).map(template => template.name),
         },
     ];
 }

@@ -104,8 +104,8 @@ function getConfig(configPath = 'cookiecutter.config.js') {
     return validateConfig(config);
 }
 
-function getTemplateConfig(templateName) {
-    const config = getConfig();
+function getTemplateConfig(templateName, configPath) {
+    const config = getConfig(configPath);
     return config.find(c => c.name === templateName);
 }
 
