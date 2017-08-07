@@ -32,7 +32,7 @@ Promise.resolve()
         });
     })
     .then(config => {
-        return renderFiles(config);
+        return renderFiles(config, configLocation);
     })
     .catch(e => {
         log.error(e);

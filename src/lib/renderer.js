@@ -13,8 +13,8 @@ function replaceFields(string, fields) {
     return result;
 }
 
-function renderFiles({templateName, fields}) {
-    const config = getTemplateConfig(templateName);
+function renderFiles({templateName, fields}, configLocation) {
+    const config = getTemplateConfig(templateName, configLocation);
     const pwd = process.env.PWD;
     const destinationDirectory = path.resolve(pwd, config.outputPath);
     const templateDirectory = path.resolve(pwd, config.templatePath);
