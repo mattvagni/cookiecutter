@@ -55,7 +55,7 @@ function renderFiles({templateName, fields}, configLocation) {
             return {
                 src: filePath,
                 dest: path.join(
-                    destinationDirectory,
+                    replaceFields(destinationDirectory, fields),
                     replaceFields(base, fields),
                     replaceFields(filePath.replace(templateDirectory, ''), fields)
                 ),
