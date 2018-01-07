@@ -12,6 +12,14 @@
     "fs-extra": "3.0.1",
     "inquirer": "3.1.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattvagni/cookiecutter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mattvagni/cookiecutter/issues"
+  },
+  "homepage": "https://github.com/mattvagni/cookiecutter#readme",
   "scripts": {
     "test": "jest",
     "lint": "eslint src/"

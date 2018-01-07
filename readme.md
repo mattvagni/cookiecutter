@@ -6,7 +6,7 @@ A CLI for creating boilerplate files/folders based on templates you provide. Lik
 
 Show me:
 
-![Example with Error](https://cookiecutter-images.surge.sh/WithError.gif)
+![Example with Error](./images/WithError.gif)
 
 It is designed for existing projects where you want an easy way to create boilerplate files - instead of having to copy paste an existing file & then remember to make the necessary changes.
 
@@ -69,7 +69,7 @@ module.exports = [
 
 If you now run `npm run cookiecutter` you will be prompted to pick which template you'd like to use. After which you will be asked to answer each field's question. It should look something like this:
 
-![Example from Tutorial](https://cookiecutter-images.surge.sh/ExampleComponent.gif)
+![Example from Tutorial](./images/ExampleComponent.gif)
 
 That's it. Cookiecutter now created the following file:
 
