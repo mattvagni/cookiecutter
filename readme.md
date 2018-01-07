@@ -150,8 +150,14 @@ To run tests run `yarn test`.
 To lint files (this will also happen in CircleCI when you open a PR): `yarn lint`
 
 ## Changelog
+**1.2.1**
+- Improved documentation.
+
+**1.2.0**
+- Add support for a custom config location/
+
 **1.0.1**
-- Updated `inquierer`.
+- Updated `inquirer`.
 - Updated `jest`.
 
 **1.0.0**
