@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const inquirer = require('inquirer');
+const process = require('process');
 const {renderFiles} = require('./lib/renderer');
 const {makeFieldQuestions, makeTemplateQuestion} = require('./lib/questions');
 const {getConfig, getTemplateConfig} = require('./lib/config');
@@ -36,4 +37,5 @@ Promise.resolve()
     })
     .catch(e => {
         log.error(e);
+        process.exit(1);
     });
