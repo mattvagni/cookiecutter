@@ -13,11 +13,10 @@ function replaceFields(string, fields) {
     return result;
 }
 
-function renderFiles({templateName, fields}, configLocation) {
+function renderFiles({templateName, fields}, configLocation, outputBase) {
     const config = getTemplateConfig(templateName, configLocation);
-    const pwd = process.env.PWD;
-    const destinationDirectory = path.resolve(pwd, config.outputPath);
-    const templateDirectory = path.resolve(pwd, config.templatePath);
+    const destinationDirectory = path.resolve(outputBase, config.outputPath);
+    const templateDirectory = path.resolve(outputBase, config.templatePath);
     const isFolderTemplate = isDirectory(templateDirectory);
 
     const templateFiles = [];
@@ -77,7 +76,7 @@ function renderFiles({templateName, fields}, configLocation) {
     // and throw an error if they do.
     filesToOutput.forEach(({dest}) => {
         if (fs.pathExistsSync(dest)) {
-            throw new Error(`${path.relative(pwd, dest)} already exists.`);
+            throw new Error(`${path.relative(outputBase, dest)} already exists.`);
         }
     });
 
@@ -86,7 +85,7 @@ function renderFiles({templateName, fields}, configLocation) {
 
         // Creates neccessary directories.
         fs.outputFileSync(dest, fileContent, 'utf8');
-        log.addedFile(path.relative(pwd, dest));
+        log.addedFile(path.relative(outputBase, dest));
     });
 
     console.log(colors.green.bold('\nHappy editing!', '\n'));

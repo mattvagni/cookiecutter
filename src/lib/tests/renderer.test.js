@@ -31,7 +31,7 @@ describe('renderFiles()', () => {
             fields: {
                 CONTAINER_NAME: 'Baz',
             },
-        });
+        }, null, process.env.PWD);
 
         expect(fs.readFileSync(`${outputPath }/Baz.js`, 'utf8')).toMatchSnapshot();
     });
@@ -51,7 +51,7 @@ describe('renderFiles()', () => {
                 COMPONENT_NAME: 'Bar',
                 specialNumber: 'A',
             },
-        });
+        }, null, process.env.PWD);
 
         expect(fs.readFileSync(`${outputPath }/Bar/index.js`, 'utf8')).toMatchSnapshot();
         expect(fs.readFileSync(`${outputPath }/Bar/styles.css`, 'utf8')).toMatchSnapshot();
@@ -74,7 +74,7 @@ describe('renderFiles()', () => {
                     COMPONENT_NAME: 'Bar',
                     specialNumber: 'A',
                 },
-            });
+            }, null, process.env.PWD);
         }
 
         // Render the template the first time.
