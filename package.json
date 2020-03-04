@@ -10,7 +10,7 @@
   "dependencies": {
     "colors": "1.1.2",
     "fs-extra": "3.0.1",
-    "inquirer": "3.1.0"
+    "inquirer": "7.0.6"
   },
   "repository": {
     "type": "git",
