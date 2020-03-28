@@ -130,7 +130,7 @@ module.exports = [
             {
                 templateVariable: 'COMPONENT_NAME',
                 question: "What is the component's name?",
-+               options: ["CoolComponent", "BigComponent", "TestComponent"],
++               choices: ["CoolComponent", "BigComponent", "TestComponent"],
             }
         ]
     }
