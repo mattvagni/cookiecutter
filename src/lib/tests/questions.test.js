@@ -26,6 +26,11 @@ const testConfig = [
                 templateVariable: 'NUMBER',
                 question: 'What is your favourite number?',
             },
+            {
+                templateVariable: 'CHOICE',
+                question: 'Do you need a choice?',
+                choices: ['Yes', 'No'],
+            },
         ],
     },
 ];
@@ -37,18 +42,21 @@ it('makeTemplateQuestion() should make the right question', () => {
 });
 
 it('makeFieldQuestions() should make the correct questions', () => {
-
     const fieldQuestions = makeFieldQuestions(testConfig[0]);
 
-    // It should correctly handle there not being a custom error message and isValid
+  // It should correctly handle there not being a custom error message and isValid
     expect(fieldQuestions[0].validate('this is wrong')).toBe('Nope');
     expect(fieldQuestions[0].validate('42')).toBe(true);
 
-    // Should handle there being an error but not a custom error message
-    expect(fieldQuestions[1].validate('this is also wrong')).toBe('Invalid value.');
+  // Should handle there being an error but not a custom error message
+    expect(fieldQuestions[1].validate('this is also wrong')).toBe(
+    'Invalid value.'
+  );
 
-    // Should error on empty values since we require all questions to require a value.
+  // Should error on empty values since we require all questions to require a value.
     expect(fieldQuestions[2].validate('')).toBe('This field is mandatory.');
     expect(fieldQuestions[2].validate('this is valid')).toBe(true);
 
+    expect(fieldQuestions[3].validate('Yes')).toBe(true);
+    expect(fieldQuestions[3].validate('No')).toBe(true);
 });

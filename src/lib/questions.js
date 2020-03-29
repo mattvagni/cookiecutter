@@ -22,7 +22,8 @@ function makeFieldQuestions(templateConfig) {
         return {
             name: field.templateVariable,
             message: field.question,
-            type: 'input',
+            type: !!field.choices ? 'list' : 'input',
+            choices: field.choices || undefined,
             validate(value) {
                 if (value.length === 0) {
                     return 'This field is mandatory.';
