@@ -168,7 +168,7 @@ If you specify a folder as a template, then the folder will be created in the ou
 
 Cookiecutter will recursively copy all files within your templates folder and replace any occurrences of your specified fields.
 
-If you don't want this behavior, specify a file as your template's `templatePath`.
+The default behavior is to add a new folder at the destination; `destinationPath/ComponentName`. This can be avoided by adding `excludeDirectory: true` to your configuration file.
 
 ## Custom config location
 

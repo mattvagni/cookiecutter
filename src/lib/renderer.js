@@ -15,6 +15,7 @@ function replaceFields(string, fields) {
 
 function renderFiles({templateName, fields}, configLocation) {
     const config = getTemplateConfig(templateName, configLocation);
+    const excludeDirectory = config.excludeDirectory || false;
     const pwd = process.env.PWD;
     const destinationDirectory = path.resolve(pwd, config.outputPath);
     const templateDirectory = path.resolve(pwd, config.templatePath);
@@ -51,11 +52,11 @@ function renderFiles({templateName, fields}, configLocation) {
 
         if (isFolderTemplate) {
             const {base} = path.parse(templateDirectory);
-
             return {
                 src: filePath,
                 dest: path.join(
-                    replaceFields(base, fields),
+                    destinationDirectory,
+                    (!excludeDirectory ? replaceFields(base, fields) : ''),
                     replaceFields(filePath.replace(templateDirectory, ''), fields)
                 ),
             };
