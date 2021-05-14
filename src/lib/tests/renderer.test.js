@@ -58,7 +58,29 @@ describe('renderFiles()', () => {
         expect(fs.readFileSync(`${outputPath }/Bar/sub-folder/Bar.js`, 'utf8')).toMatchSnapshot();
     });
 
-    it('should throw an error if the output of a template allready exists', () => {
+    it('should correctly render the files when the template is a folder excluding the containing directory if set', () => {
+
+        getTemplateConfig.mockImplementation(() => {
+            return {
+                templatePath: `${__dirname }/test-templates/Foo`,
+                excludeDirectory: true,
+                outputPath,
+            };
+        });
+
+        renderFiles({
+            templateName: '',
+            fields: {
+                COMPONENT_NAME: 'Bar',
+                specialNumber: 'A',
+            },
+        });
+
+        expect(fs.readFileSync(`${outputPath }/Bar/Bar.js`, 'utf8')).toMatchSnapshot();
+        expect(fs.readFileSync(`${outputPath }/index.js`, 'utf8')).toMatchSnapshot();
+    });
+
+    it('should throw an error if the output of a template already exists', () => {
 
         getTemplateConfig.mockImplementation(() => {
             return {
